@@ -20,36 +20,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LibreTranslateAndroidTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    BirthdayGreetingWithText(message = "Happy Birthday", from = " - from swag")
-                }
+
             }
         }
-    }
-}
-
-@Preview(showBackground = true, showSystemUi = true, name = "My preview")
-@Composable
-fun DefaultPreview() {
-    LibreTranslateAndroidTheme {
-        BirthdayGreetingWithText(message = "Happy Birthday", from = " - from swag")
-    }
-}
-
-@Composable
-fun BirthdayGreetingWithText(message: String, from: String) {
-    Column {
-        Text(
-            text = message,
-            fontSize = 36.sp,
-        )
-        Text(
-            text = from,
-            fontSize = 25.sp,
-        )
     }
 }
