@@ -8,6 +8,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,16 +41,30 @@ fun HomeScreen() {
                 ),
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
-            dropDownMenu()
-            translateBox()
-            dropDownMenu()
-            translatedBox()
+            DropDownMenu()
+            TranslateBox()
+            DropDownMenu()
+            TranslatedBox()
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+                colors = ButtonDefaults.buttonColors(Gray800),
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Settings,
+                    contentDescription = "Translate button",
+                    tint = Color.White,
+                    modifier = Modifier
+                        .size(ButtonDefaults.IconSize)
+                    )
+            }
         }
     }
 }
 
 @Composable
-fun translateBox() {
+fun TranslateBox() {
     Column {
         var text by remember { mutableStateOf("") }
         TextField(
@@ -77,7 +92,7 @@ fun translateBox() {
 }
 
 @Composable
-fun translatedBox() {
+fun TranslatedBox() {
     Column {
         var text by remember { mutableStateOf("") }
         TextField(
@@ -106,7 +121,7 @@ fun translatedBox() {
 }
 
 @Composable
-fun dropDownMenu() {
+fun DropDownMenu() {
 
     var expanded by remember { mutableStateOf(false) }
     val list = listOf("English", "Spanish", "Japanese")
@@ -158,7 +173,6 @@ fun dropDownMenu() {
                     Text(text = label)
                 }
             }
-
         }
     }
 }
